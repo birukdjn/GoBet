@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GoBet.Api/GoBet.Api.csproj" />
+  <Project Path="GoBet.Application/GoBet.Application.csproj" />
+  <Project Path="GoBet.Domain/GoBet.Domain.csproj" />
+  <Project Path="GoBet.Infrastructure/GoBet.Infrastructure.csproj" />
+</Solution>
