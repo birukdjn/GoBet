@@ -13,3 +13,4 @@ D:\Csharp\GoBet\GoBet.Application\obj\Debug\net10.0\GoBet.Application.dll
 D:\Csharp\GoBet\GoBet.Application\obj\Debug\net10.0\refint\GoBet.Application.dll
 D:\Csharp\GoBet\GoBet.Application\obj\Debug\net10.0\GoBet.Application.pdb
 D:\Csharp\GoBet\GoBet.Application\obj\Debug\net10.0\ref\GoBet.Application.dll
+D:\Csharp\GoBet\GoBet.Application\obj\Debug\net10.0\GoBet.Application.sourcelink.json

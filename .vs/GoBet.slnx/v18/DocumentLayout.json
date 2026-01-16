@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Csharp\\GoBet\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0BD1AE5F-7FF5-AF6F-CCD6-26F62C1FE41B}|GoBet.Api\\GoBet.Api.csproj|d:\\csharp\\gobet\\gobet.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BD1AE5F-7FF5-AF6F-CCD6-26F62C1FE41B}|GoBet.Api\\GoBet.Api.csproj|solutionrelative:gobet.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +14,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Api\\Program.cs",
+              "RelativeDocumentMoniker": "GoBet.Api\\Program.cs",
+              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Api\\Program.cs",
+              "RelativeToolTip": "GoBet.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T12:02:19.811Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoBet.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4a0b072060d79cf23998e0df20bc60cacd42a36")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoBet.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoBet.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
