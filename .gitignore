@@ -1,9 +1,16 @@
-# Build folders
-bin/
-obj/
-# Local settings
-appsettings.Development.json
-
+# General .NET
 [Bb]in/
 [Oo]bj/
+*.exe
+*.dll
+*.pdb
+
+# IDE Files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Secrets
 appsettings.json
+appsettings.Development.json

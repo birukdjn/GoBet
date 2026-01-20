@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj": {}
+    "D:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj": {}
   },
   "projects": {
-    "d:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj": {
+    "D:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj",
+        "projectUniqueName": "D:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj",
         "projectName": "GoBet.Domain",
-        "projectPath": "d:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj",
+        "projectPath": "D:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj",
         "packagesPath": "C:\\Users\\biruk\\.nuget\\packages\\",
-        "outputPath": "d:\\Csharp\\GoBet\\GoBet.Domain\\obj\\",
+        "outputPath": "D:\\Csharp\\GoBet\\GoBet.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

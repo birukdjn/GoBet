@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoBet.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c234042cdbe0294b25c4f396f7dd3818bdcd29e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2848241966e94ccabe3d677a6dc63141b074cc85")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoBet.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoBet.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
