@@ -1,4 +1,3 @@
-using GoBet.Application.Services.Implementations;
 using GoBet.Application.Services.Interfaces;
 using GoBet.Domain.Entities;
 using GoBet.Infrastructure;
@@ -61,13 +60,6 @@ services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 // 5. Application services
 services.AddScoped<IAuthService, AuthService>();
 services.AddScoped<ITokenService, TokenService>();
-services.AddScoped<IDriverService, DriverService>();
-// services.AddScoped<IPassengerService, PassengerService>();
-// services.AddScoped<IRideService, RideService>();
-// services.AddScoped<INotificationService, NotificationService>();
-// services.AddScoped<IPaymentService, PaymentService>();
-// services.AddScoped<IEmailService, EmailService>();
-// services.AddScoped<ISmsService, SmsService>();
 
 // 6. Authentication
 services.AddAuthentication(options =>
@@ -127,3 +119,4 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
+

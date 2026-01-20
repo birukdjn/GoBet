@@ -1,4 +1,3 @@
-﻿
 
 namespace GoBet.Domain.Entities
 {

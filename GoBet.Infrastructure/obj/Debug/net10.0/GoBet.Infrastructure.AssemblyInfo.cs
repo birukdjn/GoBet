@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoBet.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2848241966e94ccabe3d677a6dc63141b074cc85")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4a0b072060d79cf23998e0df20bc60cacd42a36")]
+>>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
 [assembly: System.Reflection.AssemblyProductAttribute("GoBet.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoBet.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

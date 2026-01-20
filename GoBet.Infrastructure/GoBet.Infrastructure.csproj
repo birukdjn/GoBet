@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     
+=======
+>>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.2">
@@ -16,10 +19,13 @@
     </PackageReference>
   </ItemGroup>
 
+<<<<<<< HEAD
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
+=======
+>>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
   <ItemGroup>
     <ProjectReference Include="..\GoBet.Application\GoBet.Application.csproj" />
   </ItemGroup>
