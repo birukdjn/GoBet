@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Csharp\\GoBet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5949040D-57F2-4E7E-9F12-EFBCD4725D80}|GoBet.Application\\GoBet.Application.csproj|d:\\csharp\\gobet\\gobet.application\\gobet.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5949040D-57F2-4E7E-9F12-EFBCD4725D80}|GoBet.Application\\GoBet.Application.csproj|solutionrelative:gobet.application\\gobet.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{2FE158D6-DE46-BCB6-9DBA-646BFE86F06E}|GoBet.Domain\\GoBet.Domain.csproj|d:\\csharp\\gobet\\gobet.domain\\entities\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FE158D6-DE46-BCB6-9DBA-646BFE86F06E}|GoBet.Domain\\GoBet.Domain.csproj|solutionrelative:gobet.domain\\entities\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E30C84D6-879D-48A9-96B6-B449FBDF8349}|GoBet.Domain\\GoBet.Domain.csproj|d:\\csharp\\gobet\\gobet.domain\\gobet.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{E30C84D6-879D-48A9-96B6-B449FBDF8349}|GoBet.Domain\\GoBet.Domain.csproj|solutionrelative:gobet.domain\\gobet.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|d:\\csharp\\gobet\\gobet.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|solutionrelative:gobet.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3168DD2B-B7E9-486C-A893-F508BD6EF811}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|d:\\csharp\\gobet\\gobet.infrastructure\\gobet.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3168DD2B-B7E9-486C-A893-F508BD6EF811}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|solutionrelative:gobet.infrastructure\\gobet.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|d:\\csharp\\gobet\\gobet.infrastructure\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|solutionrelative:gobet.infrastructure\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|d:\\csharp\\gobet\\gobet.infrastructure\\gobet.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|solutionrelative:gobet.infrastructure\\gobet.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Trip.cs",
+              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Domain\\Entities\\Trip.cs",
+              "RelativeDocumentMoniker": "GoBet.Domain\\Entities\\Trip.cs",
+              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Domain\\Entities\\Trip.cs",
+              "RelativeToolTip": "GoBet.Domain\\Entities\\Trip.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T11:49:26.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GoBet.Domain",
-              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj",
-              "RelativeDocumentMoniker": "GoBet.Domain\\GoBet.Domain.csproj",
-              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Domain\\GoBet.Domain.csproj",
-              "RelativeToolTip": "GoBet.Domain\\GoBet.Domain.csproj",
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "GoBet.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "GoBet.Infrastructure\\Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-16T09:02:24.891Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T11:49:13.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DbInitializer.cs",
+              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\DbInitializer.cs",
+              "RelativeDocumentMoniker": "GoBet.Infrastructure\\DbInitializer.cs",
+              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\DbInitializer.cs",
+              "RelativeToolTip": "GoBet.Infrastructure\\DbInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T11:49:04.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "GoBet.Infrastructure",
               "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
               "RelativeDocumentMoniker": "GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
               "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
               "RelativeToolTip": "GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-16T09:02:22.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GoBet.Application",
-              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Application\\GoBet.Application.csproj",
-              "RelativeDocumentMoniker": "GoBet.Application\\GoBet.Application.csproj",
-              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Application\\GoBet.Application.csproj",
-              "RelativeToolTip": "GoBet.Application\\GoBet.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-16T09:01:32.036Z",
+              "WhenOpened": "2026-01-20T11:47:48.2Z",
               "EditorCaption": ""
             },
             {

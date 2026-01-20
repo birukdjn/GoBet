@@ -1,4 +1,5 @@
 D:\Csharp\GoBet\GoBet.Infrastructure\bin\Debug\net10.0\GoBet.Infrastructure.deps.json
+D:\Csharp\GoBet\GoBet.Infrastructure\bin\Debug\net10.0\GoBet.Infrastructure.runtimeconfig.json
 D:\Csharp\GoBet\GoBet.Infrastructure\bin\Debug\net10.0\GoBet.Infrastructure.dll
 D:\Csharp\GoBet\GoBet.Infrastructure\bin\Debug\net10.0\GoBet.Infrastructure.pdb
 D:\Csharp\GoBet\GoBet.Infrastructure\bin\Debug\net10.0\GoBet.Application.dll
@@ -10,8 +11,10 @@ D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.Gene
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.AssemblyInfoInputs.cache
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.AssemblyInfo.cs
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.sourcelink.json
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.In.89ADA26A.Up2Date
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.dll
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\refint\GoBet.Infrastructure.dll
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.pdb
+D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\GoBet.Infrastructure.genruntimeconfig.cache
 D:\Csharp\GoBet\GoBet.Infrastructure\obj\Debug\net10.0\ref\GoBet.Infrastructure.dll

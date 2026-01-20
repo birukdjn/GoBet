@@ -1,10 +1,12 @@
 D:\Csharp\GoBet\GoBet.Domain\bin\Debug\net10.0\GoBet.Domain.deps.json
 D:\Csharp\GoBet\GoBet.Domain\bin\Debug\net10.0\GoBet.Domain.dll
 D:\Csharp\GoBet\GoBet.Domain\bin\Debug\net10.0\GoBet.Domain.pdb
+D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.csproj.AssemblyReference.cache
 D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.AssemblyInfoInputs.cache
 D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.AssemblyInfo.cs
 D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.csproj.CoreCompileInputs.cache
+D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.sourcelink.json
 D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.dll
 D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\refint\GoBet.Domain.dll
 D:\Csharp\GoBet\GoBet.Domain\obj\Debug\net10.0\GoBet.Domain.pdb
