@@ -1,6 +1,6 @@
 ﻿using GoBet.Application.DTOs;
 using Microsoft.AspNetCore.Http;
-namespace GoBet.Application.Services.Interfaces
+namespace GoBet.Application.Interfaces
 {
     public interface IAuthService
     {

@@ -1,15 +1,17 @@
-using GoBet.Application.Services.Interfaces;
+using GoBet.Application.Interfaces;
+using GoBet.Application.Services;
 using GoBet.Domain.Entities;
 using GoBet.Infrastructure;
+using GoBet.Infrastructure.Configuration;
 using GoBet.Infrastructure.Data;
 using GoBet.Infrastructure.Identity;
+using GoBet.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using System.Text;
-using GoBet.Application.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -66,11 +68,16 @@ services.Configure<PasswordHasherOptions>(options =>
 services.Configure<DataProtectionTokenProviderOptions>(options =>
     options.TokenLifespan = TimeSpan.FromHours(1));
 
+// Email settings
+services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
 
 // 5. Application services
 services.AddScoped<IAuthService, AuthService>();
 services.AddScoped<ITokenService, TokenService>();
 services.AddScoped<IDriverService, DriverService>();
+services.AddScoped<IEmailService, EmailService>();
+
 
 
 

@@ -1,14 +1,10 @@
 ﻿using GoBet.Application.DTOs;
-using GoBet.Application.Services.Interfaces;
-using GoBet.Infrastructure.Identity;
+using GoBet.Application.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.Intrinsics.X86;
-using System.Threading;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace GoBet.Api.Controllers
 {

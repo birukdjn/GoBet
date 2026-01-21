@@ -1,7 +1,8 @@
 ﻿using GoBet.Application.DTOs;
-using GoBet.Application.Services.Interfaces;
+using GoBet.Application.Interfaces;
 using GoBet.Domain.Constants;
 using GoBet.Domain.Entities;
+using GoBet.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -11,13 +12,12 @@ namespace GoBet.Infrastructure.Identity
 {
     public class AuthService(
         UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager,
+        IEmailService emailService,
         ITokenService tokenService)
         : IAuthService
     {
         public async Task RegisterPassengerAsync(RegisterModel model)
-        { 
-
+        {
             var user = new ApplicationUser
             {
                 Email = model.Email,
@@ -29,7 +29,7 @@ namespace GoBet.Infrastructure.Identity
 
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                throw new Exception("Registration failed");
+                throw new Exception("Registration failed: " + string.Join(", ", result.Errors.Select(e => e.Description)));
 
             await userManager.AddToRoleAsync(user, Roles.Passenger);
         }
@@ -86,16 +86,13 @@ namespace GoBet.Infrastructure.Identity
         {
             var user = await userManager.FindByEmailAsync(email);
 
-            // Security Best Practice: Don't reveal if the user exists.
-            // Always return "success" to the frontend to prevent email enumeration.
-            if (user == null) return;
+            if (user == null || user.Email == null) return;
 
-            // Generate the secure token
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
 
-            // TODO: Send this token via Email
-            // Example Link: https://gobet.com/reset-password?token=TOKEN&email=EMAIL
-            // await _emailService.SendResetLinkAsync(user.Email, token);
+            var resetLink = $"https://gobet-app.com/reset-password?token={Uri.EscapeDataString(token)}&email={user.Email}";
+
+            await emailService.SendPasswordResetEmailAsync(user.Email, resetLink);
         }
 
         public async Task ResetPasswordAsync(ResetPasswordModel model)
@@ -103,10 +100,6 @@ namespace GoBet.Infrastructure.Identity
             var user = await userManager.FindByEmailAsync(model.Email)
                 ?? throw new Exception("User not found");
 
-            // This method handles:
-            // 1. Validating the token (expiry, single-use)
-            // 2. Hashing the new password
-            // 3. Updating the database
             var result = await userManager.ResetPasswordAsync(user, model.Token, model.NewPassword);
 
             if (!result.Succeeded)
@@ -114,6 +107,5 @@ namespace GoBet.Infrastructure.Identity
                 throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
             }
         }
-
     }
 }

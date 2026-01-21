@@ -1,5 +1,5 @@
 ﻿using GoBet.Application.DTOs;
-using GoBet.Application.Services.Interfaces;
+using GoBet.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 

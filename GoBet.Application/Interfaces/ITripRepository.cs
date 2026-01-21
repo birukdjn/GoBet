@@ -1,6 +1,6 @@
 ﻿using GoBet.Domain.Entities;
 
-namespace GoBet.Application.Services.Interfaces
+namespace GoBet.Application.Interfaces
 {
     public interface ITripRepository
     {
