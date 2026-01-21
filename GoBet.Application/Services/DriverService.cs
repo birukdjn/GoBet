@@ -4,7 +4,7 @@ using GoBet.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
 
-namespace GoBet.Application.Services.Implementations
+namespace GoBet.Application.Services
 {
     public class DriverService( UserManager<ApplicationUser> userManager) : IDriverService
     {

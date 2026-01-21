@@ -9,10 +9,7 @@
       "GoBet.Application/1.0.0": {
         "dependencies": {
           "GoBet.Domain": "1.0.0",
-<<<<<<< HEAD
           "Microsoft.AspNetCore.Http": "2.3.9",
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
           "System.IdentityModel.Tokens.Jwt": "8.15.0"
         },
         "runtime": {
@@ -38,7 +35,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.AspNetCore.Http/2.3.9": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.3.0",
@@ -87,8 +83,6 @@
           }
         }
       },
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
       "Microsoft.Extensions.Caching.Abstractions/10.0.2": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "10.0.2"
@@ -230,7 +224,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.Extensions.ObjectPool/8.0.11": {
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.ObjectPool.dll": {
@@ -239,8 +232,6 @@
           }
         }
       },
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
       "Microsoft.Extensions.Options/10.0.2": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.2",
@@ -318,7 +309,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.Net.Http.Headers/2.3.8": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "10.0.2"
@@ -330,8 +320,6 @@
           }
         }
       },
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
       "System.IdentityModel.Tokens.Jwt/8.15.0": {
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "8.15.0",
@@ -377,7 +365,6 @@
       "path": "microsoft.aspnetcore.cryptography.keyderivation/10.0.2",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.10.0.2.nupkg.sha512"
     },
-<<<<<<< HEAD
     "Microsoft.AspNetCore.Http/2.3.9": {
       "type": "package",
       "serviceable": true,
@@ -406,8 +393,6 @@
       "path": "microsoft.aspnetcore.webutilities/2.3.0",
       "hashPath": "microsoft.aspnetcore.webutilities.2.3.0.nupkg.sha512"
     },
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
     "Microsoft.Extensions.Caching.Abstractions/10.0.2": {
       "type": "package",
       "serviceable": true,
@@ -492,7 +477,6 @@
       "path": "microsoft.extensions.logging.abstractions/10.0.2",
       "hashPath": "microsoft.extensions.logging.abstractions.10.0.2.nupkg.sha512"
     },
-<<<<<<< HEAD
     "Microsoft.Extensions.ObjectPool/8.0.11": {
       "type": "package",
       "serviceable": true,
@@ -500,8 +484,6 @@
       "path": "microsoft.extensions.objectpool/8.0.11",
       "hashPath": "microsoft.extensions.objectpool.8.0.11.nupkg.sha512"
     },
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
     "Microsoft.Extensions.Options/10.0.2": {
       "type": "package",
       "serviceable": true,
@@ -551,7 +533,6 @@
       "path": "microsoft.identitymodel.tokens/8.15.0",
       "hashPath": "microsoft.identitymodel.tokens.8.15.0.nupkg.sha512"
     },
-<<<<<<< HEAD
     "Microsoft.Net.Http.Headers/2.3.8": {
       "type": "package",
       "serviceable": true,
@@ -559,8 +540,6 @@
       "path": "microsoft.net.http.headers/2.3.8",
       "hashPath": "microsoft.net.http.headers.2.3.8.nupkg.sha512"
     },
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
     "System.IdentityModel.Tokens.Jwt/8.15.0": {
       "type": "package",
       "serviceable": true,

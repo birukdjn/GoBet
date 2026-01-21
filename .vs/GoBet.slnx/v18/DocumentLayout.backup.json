@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Csharp\\GoBet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2FE158D6-DE46-BCB6-9DBA-646BFE86F06E}|GoBet.Domain\\GoBet.Domain.csproj|d:\\csharp\\gobet\\gobet.domain\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FE158D6-DE46-BCB6-9DBA-646BFE86F06E}|GoBet.Domain\\GoBet.Domain.csproj|solutionrelative:gobet.domain\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BD1AE5F-7FF5-AF6F-CCD6-26F62C1FE41B}|GoBet.Api\\GoBet.Api.csproj|d:\\csharp\\gobet\\gobet.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BD1AE5F-7FF5-AF6F-CCD6-26F62C1FE41B}|GoBet.Api\\GoBet.Api.csproj|solutionrelative:gobet.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Csharp\\GoBet\\GoBet.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GoBet.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|d:\\csharp\\gobet\\gobet.infrastructure\\identity\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|solutionrelative:gobet.infrastructure\\identity\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BD1AE5F-7FF5-AF6F-CCD6-26F62C1FE41B}|GoBet.Api\\GoBet.Api.csproj|d:\\csharp\\gobet\\gobet.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BD1AE5F-7FF5-AF6F-CCD6-26F62C1FE41B}|GoBet.Api\\GoBet.Api.csproj|solutionrelative:gobet.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|d:\\csharp\\gobet\\gobet.infrastructure\\gobet.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BBA47E77-5C81-A5B3-987B-A5BACA551DB3}|GoBet.Infrastructure\\GoBet.Infrastructure.csproj|solutionrelative:gobet.infrastructure\\gobet.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +26,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Api\\Program.cs",
               "RelativeDocumentMoniker": "GoBet.Api\\Program.cs",
               "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Api\\Program.cs",
               "RelativeToolTip": "GoBet.Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAiwEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-16T12:02:19.811Z",
+              "WhenOpened": "2026-01-21T06:42:24.84Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Domain\\Entities\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "GoBet.Domain\\Entities\\ApplicationUser.cs",
-              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Domain\\Entities\\ApplicationUser.cs",
-              "RelativeToolTip": "GoBet.Domain\\Entities\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T13:49:56.794Z",
               "EditorCaption": ""
             },
             {
@@ -58,6 +53,44 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\Identity\\AuthService.cs",
+              "RelativeDocumentMoniker": "GoBet.Infrastructure\\Identity\\AuthService.cs",
+              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\Identity\\AuthService.cs",
+              "RelativeToolTip": "GoBet.Infrastructure\\Identity\\AuthService.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAIAzwGkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T08:24:27.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GoBet.Infrastructure.csproj",
+              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
+              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
+              "RelativeToolTip": "GoBet.Infrastructure\\GoBet.Infrastructure.csproj",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-21T06:36:20.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Csharp\\GoBet\\GoBet.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "GoBet.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Csharp\\GoBet\\GoBet.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "GoBet.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAuwEkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T06:32:47.693Z",
+              "EditorCaption": ""
             }
           ]
         }

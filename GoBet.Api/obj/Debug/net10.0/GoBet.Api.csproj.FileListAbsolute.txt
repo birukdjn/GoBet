@@ -170,3 +170,5 @@ D:\Csharp\GoBet\GoBet.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\Csharp\GoBet\GoBet.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Csharp\GoBet\GoBet.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Csharp\GoBet\GoBet.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Csharp\GoBet\GoBet.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Csharp\GoBet\GoBet.Api\bin\Debug\net10.0\BCrypt.Net-Next.dll

@@ -7,5 +7,7 @@ namespace GoBet.Application.Services.Interfaces
         Task RegisterPassengerAsync(RegisterModel model);
         Task<AuthResultDto> LoginAsync(LoginModel model);
         Task<AuthResultDto> HandleExternalLoginAsync(HttpContext context);
+        Task ForgotPasswordAsync(string email);
+        Task ResetPasswordAsync(ResetPasswordModel model);
     }
 }

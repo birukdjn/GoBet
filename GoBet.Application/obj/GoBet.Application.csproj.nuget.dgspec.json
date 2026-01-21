@@ -55,13 +55,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
-<<<<<<< HEAD
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
               "version": "[2.3.9, )"
             },
-=======
->>>>>>> c234042cdbe0294b25c4f396f7dd3818bdcd29e4
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[8.15.0, )"

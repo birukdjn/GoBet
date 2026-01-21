@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using System.Text;
+using GoBet.Application.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,9 +58,21 @@ services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
+services.Configure<PasswordHasherOptions>(options =>
+{
+    options.IterationCount = 600000;
+});
+
+services.Configure<DataProtectionTokenProviderOptions>(options =>
+    options.TokenLifespan = TimeSpan.FromHours(1));
+
+
 // 5. Application services
 services.AddScoped<IAuthService, AuthService>();
 services.AddScoped<ITokenService, TokenService>();
+services.AddScoped<IDriverService, DriverService>();
+
+
 
 // 6. Authentication
 services.AddAuthentication(options =>
