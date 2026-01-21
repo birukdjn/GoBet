@@ -6,5 +6,6 @@ namespace GoBet.Application.Interfaces
     {
         Task<Trip> GetByIdAsync(Guid id);
         Task UpdateAsync(Trip trip);
+        Task<IEnumerable<Trip>> GetActiveTripsByDestinationAsync(string destination);
     }
 }

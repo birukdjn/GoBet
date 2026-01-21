@@ -42,7 +42,6 @@ namespace GoBet.Api.Controllers
             return Ok(result);
         }
 
-
         [HttpPost("forgot-password")]
         [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordModel model)
@@ -54,7 +53,6 @@ namespace GoBet.Api.Controllers
         }
 
         [HttpPost("reset-password")]
-        [AllowAnonymous]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
         {
             if (!ModelState.IsValid)
@@ -67,7 +65,7 @@ namespace GoBet.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { Message = ex.Message });
+                return BadRequest(new { ex.Message });
             }
         }
     }
