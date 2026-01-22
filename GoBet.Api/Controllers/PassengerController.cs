@@ -9,7 +9,7 @@ namespace GoBet.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Passenger")]
+//[Authorize(Roles = "Passenger")]
 public class PassengerController(IPassengerService passengerService) : ControllerBase
 {
     [HttpGet("find-buses")]

@@ -4,10 +4,8 @@ namespace GoBet.Domain.Entities
 {
     public class Trip
     {
-        // EF Core needs this empty constructor
         public Trip() { }
 
-        // You can still have a logic-based constructor if you want
         public Trip(int totalSeats)
         {
             Id = Guid.NewGuid();
@@ -19,7 +17,6 @@ namespace GoBet.Domain.Entities
         public Guid DriverId { get; set; }
         public string Destination { get; set; } = string.Empty;
 
-        // Map the capacity to the database so EF knows what 'totalSeats' was
         public int TotalSeats { get; set; }
         public int AvailableSeats { get; set; }
 
