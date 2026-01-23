@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Identity;
 
 namespace GoBet.Application.Services
 {
-    public class DriverService( UserManager<ApplicationUser> userManager, IEmailService emailService) : IDriverService
+    public class DriverService( 
+        UserManager<ApplicationUser> userManager, 
+        ITripRepository tripRepository,
+    ITerminalRepository terminalRepository) : IDriverService
     {
         public async Task RequestDriverAsync(string userId, string licenseNumber)
         {
@@ -17,23 +20,23 @@ namespace GoBet.Application.Services
             await userManager.UpdateAsync(user);
         }
         
-        public async Task ApproveDriverAsync(string userId)
+        public async Task<Guid> StartTripAsync(string driverId, string destination, List<Guid> terminalIds)
         {
-            var user = await userManager.FindByIdAsync(userId) ?? throw new Exception("User not found.");
-            user.IsDriverApproved = true;
-            var result = await userManager.AddToRoleAsync(user, Roles.Driver);
+            // Fetch the actual terminal data from DB
+            var terminals = await terminalRepository.GetByIdsAsync(terminalIds);
 
-            if (!result.Succeeded)
-                throw new Exception("Failed to assign driver role.");
+            var newTrip = new Trip(30) // Assuming 30 seats
+            {
+                DriverId = Guid.Parse(driverId),
+                Destination = destination,
+                Status = TripStatus.EnRoute,
+                RouteStops = terminals.ToList(),
+                CurrentLatitude = terminals.First().Latitude,
+                CurrentLongitude = terminals.First().Longitude
+            };
 
-            var subject = "GoBet - Driver Application Approved!";
-            var body = $@"
-                <h3>Congratulations, {user.FullName}!</h3>
-                <p>Your driver application for GoBet Transport has been approved.</p>
-                <p>You can now log in to your dashboard and start accepting passenger requests.</p>
-                <br>
-                <p>Safe travels,<br>The GoBet Team</p>";
-            await emailService.SendEmailAsync(user.Email!, subject, body);
+            await tripRepository.AddAsync(newTrip);
+            return newTrip.Id;
         }
     }
 }

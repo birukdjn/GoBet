@@ -34,5 +34,7 @@ namespace GoBet.Domain.Entities
         public double CurrentLatitude { get; set; }
         public double CurrentLongitude { get; set; }
         public TripStatus Status { get; set; }
+
+        public List<RoadTerminal> RouteStops { get; set; } = new();
     }
 }

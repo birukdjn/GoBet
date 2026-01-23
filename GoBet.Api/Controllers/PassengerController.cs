@@ -32,7 +32,21 @@ public class PassengerController(IPassengerService passengerService) : Controlle
         }
         catch (Exception ex)
         {
-            return BadRequest(new { Message = ex.Message });
+            return BadRequest(new {ex.Message });
+        }
+    }
+
+    [HttpGet("nearest-terminal-buses")]
+    public async Task<IActionResult> GetBusesAtTerminal([FromQuery] double lat, [FromQuery] double lon, [FromQuery] string destination)
+    {
+        try
+        {
+            var result = await passengerService.FindBusesAtNearestTerminalAsync(lat, lon, destination);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new {ex.Message });
         }
     }
 }

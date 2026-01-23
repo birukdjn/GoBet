@@ -3,6 +3,7 @@ using GoBet.Application.Interfaces;
 using GoBet.Domain.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 
 namespace GoBet.Api.Controllers
@@ -19,14 +20,23 @@ namespace GoBet.Api.Controllers
             return Ok(new { message = "Driver request submitted" });
         }
 
-        [HttpPost("approve-driver/{userId}")]
-        [Authorize(Roles = Roles.Admin)]
-        public async Task<IActionResult> ApproveDriver(string userId)
+
+        [HttpPost("start-trip")]
+        //[Authorize(Roles = Roles.Driver)]
+        public async Task<IActionResult> StartTrip([FromBody] StartTripRequestDto dto)
         {
-            await driverService.ApproveDriverAsync(userId);
+            // Get Driver ID from the logged-in user token
+            var driverId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            return Ok(new { message = "User has been approved as a driver." });
-
+            try
+            {
+                var tripId = await driverService.StartTripAsync(driverId!, dto.Destination, dto.TerminalIds);
+                return Ok(new { TripId = tripId, Message = "Trip started successfully. Passengers can now find you." });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new {ex.Message });
+            }
         }
 
     }

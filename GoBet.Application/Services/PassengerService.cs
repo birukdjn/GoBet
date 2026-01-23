@@ -1,13 +1,17 @@
 ﻿using GoBet.Application.Interfaces;
 using GoBet.Domain.Entities;
 using GoBet.Application.DTOs;
+using Microsoft.AspNetCore.SignalR;
+using GoBet.Application.Hubs;
 
 namespace GoBet.Application.Services
 {
     public class PassengerService(
         ITripRepository tripRepository,
         IBookingRepository bookingRepository,
-        ILocationService locationService) : IPassengerService
+        ITerminalRepository terminalRepository,
+        ILocationService locationService,
+        IHubContext<TripHub> hubContext) : IPassengerService
     {
         public async Task<IEnumerable<TripDto>> FindNearbyBusesAsync(double userLat, double userLon, string destination)
         {
@@ -60,10 +64,45 @@ namespace GoBet.Application.Services
             await bookingRepository.AddAsync(booking);
             await tripRepository.UpdateAsync(trip);
 
+            await hubContext.Clients.Group(request.TripId.ToString())
+            .SendAsync("ReceivePickupRequest", new
+            {
+                request.PickupLatitude,
+                request.PickupLongitude,
+                PassengerId = request.PassengerId,
+                Message = "New roadside passenger waiting!"
+            });
+
             return new BookingResponse
             {
                 BookingId = booking.Id,
                 Message = $"Confirmed! Bus {trip.BusPlateNumber} is informed. Wait at your current spot."
+            };
+
+        }
+
+        public async Task<NearbyBusesResponse> FindBusesAtNearestTerminalAsync(double pLat, double pLon, string destination)
+        {
+            // 1. Get all terminals
+            var allTerminals = await terminalRepository.GetAllAsync();
+
+            // 2. Find the one closest to the passenger
+            var nearest = locationService.GetNearestTerminal(pLat, pLon, allTerminals);
+
+            // 3. Find trips that are passing through this specific terminal
+            var trips = await tripRepository.GetTripsPassingThroughTerminalAsync(nearest.Id, destination);
+
+            return new NearbyBusesResponse
+            {
+                NearestTerminalName = nearest.Name,
+                Buses = trips.Select(t => new TripDto
+                {
+                    Id = t.Id,
+                    PlateNumber = t.BusPlateNumber,
+                    AvailableSeats = t.AvailableSeats,
+                    // Calculate distance to the TERMINAL, not the bus
+                    DistanceKm = Math.Round(locationService.GetDistance(pLat, pLon, nearest.Latitude, nearest.Longitude), 2)
+                })
             };
         }
     }

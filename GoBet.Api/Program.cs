@@ -1,3 +1,4 @@
+using GoBet.Application.Hubs;
 using GoBet.Application.Interfaces;
 using GoBet.Application.Services;
 using GoBet.Domain.Entities;
@@ -72,17 +73,18 @@ services.Configure<DataProtectionTokenProviderOptions>(options =>
 services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 
+services.AddSignalR();
+
 // 5. Application services
 services.AddScoped<IAuthService, AuthService>();
 services.AddScoped<ITokenService, TokenService>();
 services.AddScoped<IDriverService, DriverService>();
 services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<ITripRepository, TripRepository>();
-builder.Services.AddScoped<IBookingRepository, BookingRepository>();
-
-
-builder.Services.AddScoped<IPassengerService, PassengerService>();
-builder.Services.AddScoped<ILocationService, LocationService>();
+services.AddScoped<ITripRepository, TripRepository>();
+services.AddScoped<IBookingRepository, BookingRepository>();
+services.AddScoped<ITerminalRepository, TerminalRepository>();
+services.AddScoped<IPassengerService, PassengerService>();
+services.AddScoped<ILocationService, LocationService>();
 
 
 
@@ -143,6 +145,8 @@ using (var scope = app.Services.CreateScope())
     await db.Database.MigrateAsync();
     await DbInitializer.SeedAsync(scope.ServiceProvider);
 }
+
+app.MapHub<TripHub>("/hubs/trip");
 
 app.Run();
 

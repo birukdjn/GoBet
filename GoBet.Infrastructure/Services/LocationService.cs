@@ -1,4 +1,5 @@
 ﻿using GoBet.Application.Interfaces;
+using GoBet.Domain.Entities;
 
 namespace GoBet.Infrastructure.Services
 {
@@ -16,6 +17,13 @@ namespace GoBet.Infrastructure.Services
 
             var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
             return R * c; // Distance in km
+        }
+
+        public RoadTerminal GetNearestTerminal(double pLat, double pLon, IEnumerable<RoadTerminal> terminals)
+        {
+            return terminals
+                .OrderBy(t => GetDistance(pLat, pLon, t.Latitude, t.Longitude))
+                .First();
         }
 
         public bool IsWithinPickupRange(double pLat, double pLon, double bLat, double bLon, double radius)
