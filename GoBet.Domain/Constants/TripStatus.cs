@@ -6,7 +6,10 @@ namespace GoBet.Domain.Constants
     {
         WaitingAtTerminal,
         EnRoute,
-        Completed
-        
+        Completed,
+        Scheduled,
+        Cancelled,
+        InProgress
+
     }
 }

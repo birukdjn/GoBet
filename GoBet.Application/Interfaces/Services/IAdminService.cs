@@ -1,5 +1,4 @@
-﻿
-namespace GoBet.Application.Interfaces
+﻿namespace GoBet.Application.Interfaces.Services
 {
     public interface IAdminService
     {

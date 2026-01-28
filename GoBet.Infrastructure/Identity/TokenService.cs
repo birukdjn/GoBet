@@ -1,4 +1,4 @@
-﻿using GoBet.Application.Interfaces;
+﻿using GoBet.Application.Interfaces.Services;
 using GoBet.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;

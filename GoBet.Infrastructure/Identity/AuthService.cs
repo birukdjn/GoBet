@@ -1,5 +1,5 @@
 ﻿using GoBet.Application.DTOs;
-using GoBet.Application.Interfaces;
+using GoBet.Application.Interfaces.Services;
 using GoBet.Domain.Constants;
 using GoBet.Domain.Entities;
 using GoBet.Infrastructure.Services;

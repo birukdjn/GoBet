@@ -1,8 +1,8 @@
-﻿using GoBet.Application.Interfaces;
-using GoBet.Infrastructure.Configuration;
+﻿using GoBet.Infrastructure.Configuration;
 using MailKit.Net.Smtp;
 using MimeKit;
 using Microsoft.Extensions.Options;
+using GoBet.Application.Interfaces.Services;
 
 
 namespace GoBet.Infrastructure.Services

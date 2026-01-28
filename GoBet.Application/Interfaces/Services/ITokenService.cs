@@ -1,6 +1,6 @@
 ﻿using GoBet.Domain.Entities;
 
-namespace GoBet.Application.Interfaces
+namespace GoBet.Application.Interfaces.Services
 {
     public interface ITokenService
     {

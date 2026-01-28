@@ -1,52 +1,33 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+﻿using GoBet.Api.Extensions;
 using GoBet.Application.DTOs;
-using GoBet.Application.Interfaces;
+using GoBet.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-
-namespace GoBet.Api.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-//[Authorize(Roles = "Passenger")]
-public class PassengerController(IPassengerService passengerService) : ControllerBase
+namespace GoBet.Api.Controllers
 {
-    [HttpGet("find-buses")]
-    public async Task<IActionResult> GetNearbyBuses([FromQuery] double lat, [FromQuery] double lon, [FromQuery] string destination)
+    [ApiController]
+    [Route("api/passenger")]
+    public class PassengerController(IPassengerService passengerService) : ControllerBase
     {
-        var buses = await passengerService.FindNearbyBusesAsync(lat, lon, destination);
-        return Ok(buses);
-    }
+        [HttpGet("find-buses")]
+        public async Task<IActionResult> FindNearby(double lat, double lon, string destination)
+            => Ok(await passengerService.FindNearbyBusesAsync(lat, lon, destination));
 
-    [HttpPost("book-pickup")]
-    public async Task<IActionResult> BookPickup([FromBody] BookingRequest request)
-    {
-        // Automatically grab Passenger ID from the JWT Token
-        request.PassengerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        [HttpGet("nearest-terminal-buses")]
+        public async Task<IActionResult> NearestTerminal(double lat, double lon, string destination)
+            => Ok(await passengerService.FindBusesAtNearestTerminalAsync(lat, lon, destination));
 
-        try
+        [Authorize(Roles = "Passenger")]
+        [HttpPost("book-pickup")]
+        public async Task<IActionResult> BookPickup(BookingRequest request)
         {
-            var result = await passengerService.BookRoadsidePickupAsync(request);
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new {ex.Message });
-        }
-    }
-
-    [HttpGet("nearest-terminal-buses")]
-    public async Task<IActionResult> GetBusesAtTerminal([FromQuery] double lat, [FromQuery] double lon, [FromQuery] string destination)
-    {
-        try
-        {
-            var result = await passengerService.FindBusesAtNearestTerminalAsync(lat, lon, destination);
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new {ex.Message });
+            string passengerId = User.GetUserId().ToString();
+            return Ok(await passengerService.BookRoadsidePickupAsync(
+                request.TripId, 
+                passengerId, 
+                request.Latitude, 
+                request.Longitude));
         }
     }
 }

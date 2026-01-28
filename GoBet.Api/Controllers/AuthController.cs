@@ -1,5 +1,5 @@
 ﻿using GoBet.Application.DTOs;
-using GoBet.Application.Interfaces;
+using GoBet.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;

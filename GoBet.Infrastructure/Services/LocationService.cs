@@ -1,4 +1,4 @@
-﻿using GoBet.Application.Interfaces;
+﻿using GoBet.Application.Interfaces.Services;
 using GoBet.Domain.Entities;
 
 namespace GoBet.Infrastructure.Services

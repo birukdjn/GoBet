@@ -1,4 +1,4 @@
-﻿using GoBet.Application.Interfaces;
+﻿using GoBet.Application.Interfaces.Repositories;
 using GoBet.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +15,7 @@ namespace GoBet.Infrastructure.Repositories
         public async Task<Booking?> GetByIdAsync(Guid id)
         {
             return await context.Bookings
-                .Include(b => b.Trip) 
+                .Include(b => b.Trip)
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
     }

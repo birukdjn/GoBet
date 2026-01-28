@@ -1,4 +1,4 @@
-﻿using GoBet.Application.Interfaces;
+﻿using GoBet.Application.Interfaces.Repositories;
 using GoBet.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 

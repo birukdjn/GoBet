@@ -1,11 +1,29 @@
-﻿
+﻿using GoBet.Domain.Entities;
+
 namespace GoBet.Application.DTOs
 {
-    public class TripDto
+    public record TripDto(
+        Guid Id,
+        string Destination,
+        int TotalSeats,
+        int AvailableSeats,
+        string BusPlateNumber,
+        double CurrentLatitude,
+        double CurrentLongitude,
+        string Status
+    )
     {
-        public Guid Id { get; set; }
-        public string PlateNumber { get; set; } = string.Empty;
-        public double DistanceKm { get; set; }
-        public int AvailableSeats { get; set; }
+        public TripDto(Trip trip) : this(
+            trip.Id,
+            trip.Destination,
+            trip.TotalSeats,
+            trip.AvailableSeats,
+            trip.BusPlateNumber,
+            trip.CurrentLatitude,
+            trip.CurrentLongitude,
+            trip.Status.ToString()
+        )
+        { }
     }
+
 }

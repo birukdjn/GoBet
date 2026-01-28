@@ -1,4 +1,4 @@
-﻿using GoBet.Application.Interfaces;
+﻿using GoBet.Application.Interfaces.Repositories;
 using GoBet.Domain.Constants;
 using GoBet.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -9,13 +9,11 @@ namespace GoBet.Infrastructure.Repositories
     {
         private readonly ApplicationDbContext context = context;
 
-        public async Task<IEnumerable<Trip>> GetActiveTripsByDestinationAsync(string destination)
+        public async Task<Trip?> GetTripByIdAsync(Guid id)
         {
             return await context.Trips
-                .Where(t => t.Destination == destination &&
-                            t.Status == TripStatus.EnRoute &&
-                            t.AvailableSeats > 0)
-                .ToListAsync();
+                .Include(t=> t.RouteStops)
+                .FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task AddAsync(Trip trip)
@@ -24,16 +22,26 @@ namespace GoBet.Infrastructure.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task<Trip?> GetByIdAsync(Guid id)
-        {
-            return await context.Trips.FindAsync(id);
-        }
-
         public async Task UpdateAsync(Trip trip)
         {
             context.Trips.Update(trip);
             await context.SaveChangesAsync();
         }
+
+        public async Task<bool> ExistsAsync(Guid id)
+        {
+            return await context.Trips.AnyAsync(t => t.Id == id);
+        }
+
+        public async Task<IEnumerable<Trip>> GetActiveTripsByDestinationAsync(string destination)
+        {
+            return await context.Trips
+                .Where(t => t.Destination == destination &&
+                            t.Status == TripStatus.EnRoute &&
+                            t.AvailableSeats > 0)
+                .ToListAsync();
+        }
+    
 
         public async Task<IEnumerable<Trip>> GetTripsPassingThroughTerminalAsync(Guid terminalId, string destination)
         {

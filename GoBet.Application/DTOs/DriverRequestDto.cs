@@ -1,6 +1,6 @@
 ﻿
 namespace GoBet.Application.DTOs
 {
-    public record DriverRequestDto(string UserId, string LicenseNumber);
+    public record DriverRequestDto(string LicenseNumber);
 }
 

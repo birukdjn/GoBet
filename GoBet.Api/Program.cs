@@ -1,10 +1,12 @@
 using GoBet.Application.Hubs;
-using GoBet.Application.Interfaces;
+using GoBet.Application.Interfaces.Repositories;
+using GoBet.Application.Interfaces.Services;
 using GoBet.Application.Services;
 using GoBet.Domain.Entities;
 using GoBet.Infrastructure;
 using GoBet.Infrastructure.Configuration;
 using GoBet.Infrastructure.Identity;
+using GoBet.Infrastructure.Notifications;
 using GoBet.Infrastructure.Repositories;
 using GoBet.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -83,11 +85,9 @@ services.AddScoped<IEmailService, EmailService>();
 services.AddScoped<ITripRepository, TripRepository>();
 services.AddScoped<IBookingRepository, BookingRepository>();
 services.AddScoped<ITerminalRepository, TerminalRepository>();
-services.AddScoped<IPassengerService, PassengerService>();
 services.AddScoped<ILocationService, LocationService>();
-
-
-
+builder.Services.AddScoped<ITripService, TripService>();
+services.AddScoped<INotificationService, SignalRNotificationService>();
 
 // 6. Authentication
 services.AddAuthentication(options =>
