@@ -37,15 +37,15 @@ namespace GoBet.Infrastructure.Identity
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
-            var expiresMinutes = int.Parse(_config["JWT:ExpiresMinutes"] ?? "30");
-
+            var expiresMinutes = int.Parse(_config["JWT:ExpiresDays"] ?? "7");
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: _config["JWT:Issuer"],
                 audience: _config["JWT:Audience"],
-                expires: DateTime.UtcNow.AddMinutes(expiresMinutes),
+                expires: DateTime.UtcNow.AddDays(expiresMinutes),
                 claims: claims,
-                signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
+                signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

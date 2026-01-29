@@ -41,13 +41,16 @@ services.AddSwaggerGen(c =>
 });
 
 // 2. CORS
+
+
 services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:3000")
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials(); 
     });
 });
 
@@ -114,12 +117,28 @@ services.AddAuthentication(options =>
     options.ClientId = builder.Configuration["Authentication:Google:ClientId"]!;
     options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"]!;
     options.SignInScheme = IdentityConstants.ExternalScheme;
+
+    options.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
+    options.CorrelationCookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
 })
 .AddFacebook(options =>
 {
     options.AppId = builder.Configuration["Authentication:Facebook:AppId"]!;
     options.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"]!;
     options.SignInScheme = IdentityConstants.ExternalScheme;
+
+    options.Scope.Clear();
+    options.Scope.Add("public_profile");
+    options.Scope.Add("email");
+
+    options.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
+    options.CorrelationCookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+});
+
+services.Configure<CookiePolicyOptions>(options =>
+{
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.None; 
 });
 
 var app = builder.Build();
@@ -133,6 +152,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors();
+app.UseCookiePolicy();
 app.UseAuthentication();
 app.UseAuthorization();
 

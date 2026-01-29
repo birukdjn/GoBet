@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoBet.Api.Controllers
@@ -28,18 +29,50 @@ namespace GoBet.Api.Controllers
 
 
         [HttpGet("login-google")]
-        public IActionResult LoginGoogle() =>
-            Challenge(new AuthenticationProperties { RedirectUri = Url.Action(nameof(ExternalLoginCallback)) }, GoogleDefaults.AuthenticationScheme);
+        public IActionResult LoginGoogle([FromQuery] string? redirectUrl)
+        {
+            var callbackUrl = Url.Action(nameof(ExternalLoginCallback));
+
+            var properties = new AuthenticationProperties { RedirectUri = callbackUrl };
+
+            if (!string.IsNullOrEmpty(redirectUrl))
+            {
+                properties.Items["nextjs_redirect"] = redirectUrl;
+            }
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+
+          }
 
         [HttpGet("login-facebook")]
-        public IActionResult LoginFacebook() =>
-            Challenge(new AuthenticationProperties { RedirectUri = Url.Action(nameof(ExternalLoginCallback)) }, FacebookDefaults.AuthenticationScheme);
+        public IActionResult LoginFacebook([FromQuery] string? redirectUrl)
+        {
+            var callbackUrl = Url.Action(nameof(ExternalLoginCallback));
+
+            var properties = new AuthenticationProperties { RedirectUri = callbackUrl };
+
+            if (!string.IsNullOrEmpty(redirectUrl))
+            {
+                properties.Items["nextjs_redirect"] = redirectUrl;
+            }
+
+            return Challenge(properties, FacebookDefaults.AuthenticationScheme);
+        }
 
         [HttpGet("external-login-callback")]
         public async Task<IActionResult> ExternalLoginCallback()
         {
             var result = await authService.HandleExternalLoginAsync(HttpContext);
-            return Ok(result);
+
+            var authProps = await HttpContext.AuthenticateAsync(IdentityConstants.ExternalScheme);
+
+            var targetUrl = authProps?.Properties?.Items.ContainsKey("nextjs_redirect") == true
+                            ? authProps.Properties.Items["nextjs_redirect"]
+                            : "http://localhost:3000/auth-callback";
+
+            var finalUrl = $"{targetUrl}?token={Uri.EscapeDataString(result.Token)}";
+
+            return Redirect(finalUrl);
+
         }
 
         [HttpPost("forgot-password")]
