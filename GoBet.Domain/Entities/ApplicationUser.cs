@@ -8,5 +8,6 @@ namespace GoBet.Domain.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsDriverApproved { get; set; } = false;
         public string? LicenseNumber { get; set; }
+        
     }
 }

@@ -1,5 +1,4 @@
 ﻿using GoBet.Application.Interfaces.Services;
-using GoBet.Domain.Constants;
 using GoBet.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
@@ -17,6 +16,5 @@ namespace GoBet.Application.Services
             user.LicenseNumber = licenseNumber;
             await userManager.UpdateAsync(user);
         }
-        
     }
 }

@@ -4,7 +4,6 @@ using GoBet.Application.Interfaces.Services;
 using GoBet.Domain.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace GoBet.Api.Controllers
 {
@@ -13,6 +12,8 @@ namespace GoBet.Api.Controllers
     public class TripsController(ITripService tripService) : ControllerBase
     {
         private readonly ITripService _tripService = tripService;
+
+        // create a trip
 
         [HttpPost]
         [Authorize(Roles = Roles.Driver)]
@@ -25,11 +26,9 @@ namespace GoBet.Api.Controllers
         }
 
 
-        // -------------------------
         // Get trip by id
-        // -------------------------
         [HttpGet("{id}")]
-        [Authorize(Roles = "Passenger,Driver")]
+        [Authorize(Roles = $"{Roles.Admin}, {Roles.Passenger}")]
         public async Task<IActionResult> GetTrip(Guid id)
         {
             var trip = await _tripService.GetTripByIdAsync(id);
@@ -37,9 +36,7 @@ namespace GoBet.Api.Controllers
             return Ok(new TripDto(trip));
         }     
 
-        // -------------------------
         // Start trip (Driver)
-        // -------------------------
         [HttpPost("{id}/start")]
         [Authorize(Roles = Roles.Driver)]
         public async Task<IActionResult> StartTrip(Guid id)
@@ -49,9 +46,7 @@ namespace GoBet.Api.Controllers
             return Ok(new { Message = "Trip started successfully." });
         }
 
-        // -------------------------
         // Complete trip (Driver)
-        // -------------------------
         [HttpPost("{id}/complete")]
         [Authorize(Roles = Roles.Driver)]
         public async Task<IActionResult> CompleteTrip(Guid id)
@@ -61,9 +56,7 @@ namespace GoBet.Api.Controllers
             return Ok(new { Message = "Trip completed successfully." });
         }
 
-        // -------------------------
         // Update location (Driver)
-        // -------------------------
         [HttpPut("{id}/location")]
         [Authorize(Roles = Roles.Driver)]
         public async Task<IActionResult> UpdateLocation(Guid id, [FromBody] LocationUpdateRequest request)

@@ -2,6 +2,6 @@
 {
     public interface IDriverService
     {
-        Task RequestDriverAsync(string userId, string licenseNumber);
+        Task RequestDriverAsync(string PassengerId, string licenseNumber);
     }
 }

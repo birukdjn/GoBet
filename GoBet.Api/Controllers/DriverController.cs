@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
-
 namespace GoBet.Api.Controllers
 {
     [ApiController]
@@ -17,10 +16,10 @@ namespace GoBet.Api.Controllers
         [HttpPost("request-driver")]
         public async Task<IActionResult> RequestDriver(DriverRequestDto dto)
         {
-            string UserId = User.GetUserId().ToString();
-            await driverService.RequestDriverAsync(UserId, dto.LicenseNumber);
+            string PassengerId = User.GetUserId().ToString();
+            await driverService.RequestDriverAsync(PassengerId, dto.LicenseNumber);
             return Ok(new { message = "Driver request submitted" });
         }
-
+        
     }
 }
