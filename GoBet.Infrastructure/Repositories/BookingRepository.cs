@@ -12,6 +12,11 @@ namespace GoBet.Infrastructure.Repositories
             await context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<Booking>> GetAllAsync()
+        {
+            return await context.Bookings.ToListAsync();
+        }
+
         public async Task<Booking?> GetByIdAsync(Guid id)
         {
             return await context.Bookings

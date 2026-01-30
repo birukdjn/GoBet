@@ -10,5 +10,7 @@ namespace GoBet.Application.Interfaces.Repositories
         Task<bool> ExistsAsync(Guid id);
         Task<IEnumerable<Trip>> GetActiveTripsByDestinationAsync(string destination);
         Task<IEnumerable<Trip>> GetTripsPassingThroughTerminalAsync(Guid terminalId, string destination);
+        Task<IEnumerable<Trip>> GetAllAsync();
+        Task<int> GetActiveTripsCountAsync();
     }
 }

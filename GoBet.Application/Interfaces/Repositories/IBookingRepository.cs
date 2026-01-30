@@ -6,5 +6,6 @@ namespace GoBet.Application.Interfaces.Repositories
     {
         Task AddAsync(Booking booking);
         Task<Booking?> GetByIdAsync(Guid id);
+        Task<IEnumerable<Booking>> GetAllAsync();
     }
 }

@@ -83,6 +83,7 @@ services.AddSignalR();
 // 5. Application services
 services.AddScoped<IAuthService, AuthService>();
 services.AddScoped<ITokenService, TokenService>();
+services.AddScoped<IAdminService, AdminService>();
 services.AddScoped<IDriverService, DriverService>();
 services.AddScoped<IEmailService, EmailService>();
 services.AddScoped<ITripRepository, TripRepository>();

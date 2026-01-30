@@ -41,7 +41,17 @@ namespace GoBet.Infrastructure.Repositories
                             t.AvailableSeats > 0)
                 .ToListAsync();
         }
-    
+
+        public async Task<IEnumerable<Trip>> GetAllAsync()
+        {
+            return await context.Trips.ToListAsync();
+        }
+
+        public async Task<int> GetActiveTripsCountAsync()
+        {
+            return await context.Trips.CountAsync(t => t.Status == TripStatus.InProgress);
+        }
+
 
         public async Task<IEnumerable<Trip>> GetTripsPassingThroughTerminalAsync(Guid terminalId, string destination)
         {
