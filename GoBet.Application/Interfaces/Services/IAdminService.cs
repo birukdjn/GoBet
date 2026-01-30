@@ -9,6 +9,6 @@ namespace GoBet.Application.Interfaces.Services
         Task<DashboardStatsDto> GetDashboardStatsAsync();
         Task<IEnumerable<UserDetailDto>> GetAllUsersAsync();
         Task ChangeUserRoleAsync(string userId, string newRole);
-        Task UpdateUserStatusAsync(string userId, string status);
+        Task UpdateUserStatusAsync(string userId);
     }
 }

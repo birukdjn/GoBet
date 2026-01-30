@@ -57,52 +57,62 @@ namespace GoBet.Application.Services
 
         public async Task<DashboardStatsDto> GetDashboardStatsAsync()
         {
-            var users = await userManager.Users.ToListAsync();
+            var allUsers = await userManager.Users.ToListAsync();
+            var drivers = await userManager.GetUsersInRoleAsync(Roles.Driver);
+            var passengers = await userManager.GetUsersInRoleAsync(Roles.Passenger);
+            var admin = await userManager.GetUsersInRoleAsync(Roles.Admin);
 
             return new DashboardStatsDto
             {
-                UsersCount = users.Count,
-                DriversCount = users.Count(u => u.IsDriverApproved),
-                PassengersCount = users.Count(u => !u.IsDriverApproved),
+                UsersCount = allUsers.Count,
+                AdminsCount = admin.Count,
+                DriversCount = drivers.Count,
+                PassengersCount = passengers.Count,
+                ActiveUsersCount = allUsers.Count(u => u.IsActive),
+                ActiveAdminsCount = admin.Count(u => u.IsActive),
+                ActiveDriversCount = drivers.Count(u => u.IsActive),
+                ActivePassengersCount = passengers.Count(u => u.IsActive),
+
                 TripsCount = (await tripRepository.GetAllAsync()).Count(),
                 BookingsCount = (await bookingRepository.GetAllAsync()).Count(),
-                ActiveDriversCount = await tripRepository.GetActiveTripsCountAsync(),
-                ActiveUsersCount = users.Count(u => u.LastLoginDate > DateTime.UtcNow.AddDays(-7))
+                ActiveTripsCount = await tripRepository.GetActiveTripsCountAsync(),
             };
         }
 
         public async Task ChangeUserRoleAsync(string userId, string newRole)
-{
-    var user = await userManager.FindByIdAsync(userId) 
-               ?? throw new Exception("User not found");
+        {
+            var user = await userManager.FindByIdAsync(userId)
+                       ?? throw new Exception("User not found");
 
-    // Get current roles and remove them
-    var currentRoles = await userManager.GetRolesAsync(user);
-    await userManager.RemoveFromRolesAsync(user, currentRoles);
+            // Get current roles and remove them
+            var currentRoles = await userManager.GetRolesAsync(user);
+            await userManager.RemoveFromRolesAsync(user, currentRoles);
 
-    // Add the new role
-    var result = await userManager.AddToRoleAsync(user, newRole);
-    if (!result.Succeeded) 
-        throw new Exception("Failed to update role");
-}
+            // Add the new role
+            var result = await userManager.AddToRoleAsync(user, newRole);
+            if (!result.Succeeded)
+                throw new Exception("Failed to update role");
+        }
 
-public async Task UpdateUserStatusAsync(string userId, string status)
-{
-    var user = await userManager.FindByIdAsync(userId) 
-               ?? throw new Exception("User not found");
+        public async Task UpdateUserStatusAsync(string userId)
+        {
+            
+            var user = await userManager.FindByIdAsync(userId)
+                       ?? throw new Exception("User not found");
 
-    // Logic for 'Inactive' can be mapped to lockout or a custom IsActive property
-    if (status == "Inactive")
-    {
-        // Example: Lock the account for 100 years
-        await userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow.AddYears(100));
-    }
-    else
-    {
-        // Re-activate by clearing lockout
-        await userManager.SetLockoutEndDateAsync(user, null);
-    }
-}
+            bool isAdmin = await userManager.IsInRoleAsync(user, Roles.Admin);
 
+            if (isAdmin && user.IsActive)
+            {
+                throw new Exception("Cannot deactivate an account with Administrator privileges.");
+            }
+            user.IsActive = !user.IsActive;
+            var result = await userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                throw new Exception("Update failed: " + string.Join(", ", result.Errors.Select(e => e.Description)));
+            }
+
+        }
     }
 }

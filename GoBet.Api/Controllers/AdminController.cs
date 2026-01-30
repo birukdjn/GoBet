@@ -42,10 +42,10 @@ namespace GoBet.Api.Controllers
         }
 
         [HttpPatch("users/{userId}/status")]
-        public async Task<IActionResult> UpdateStatus(string userId, [FromBody] StatusUpdateDto dto)
+        public async Task<IActionResult> ToggleStatus(string userId)
         {
-            await adminService.UpdateUserStatusAsync(userId, dto.Status);
-            return Ok(new { message = $"User status updated to {dto.Status}" });
+            await adminService.UpdateUserStatusAsync(userId);
+            return Ok(new { message = "User status toggled successfully." });
         }
     }
 }
