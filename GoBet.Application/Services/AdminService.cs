@@ -41,14 +41,14 @@ namespace GoBet.Application.Services
             foreach (var user in users)
             {
                 var roles = await userManager.GetRolesAsync(user);
-                var isLockedOut = await userManager.IsLockedOutAsync(user);
                 userList.Add(new UserDetailDto
                 {
                     Id = user.Id,
                     FullName = user.FullName,
                     Email = user.Email!,
                     Role = roles.FirstOrDefault() ?? "Passenger",
-                    Status = isLockedOut ? "Inactive" : "Active"
+                    IsActive = user.IsActive,
+                    LastLoginDate = user.LastLoginDate,
                 });
             }
 
@@ -92,6 +92,43 @@ namespace GoBet.Application.Services
             var result = await userManager.AddToRoleAsync(user, newRole);
             if (!result.Succeeded)
                 throw new Exception("Failed to update role");
+        }
+
+        public async Task<IEnumerable<DriverRequestDetailDto>> GetPendingDriverRequestsAsync()
+        {
+            // Fetch users who are NOT approved yet but have a license number (indicating they applied)
+            var pendingUsers = await userManager.Users
+                .Where(u => !u.IsDriverApproved && !string.IsNullOrEmpty(u.LicenseNumber))
+                .ToListAsync();
+
+            return pendingUsers.Select(u => new DriverRequestDetailDto
+            {
+                UserId = u.Id,
+                FullName = u.FullName,
+                Email = u.Email!,
+                LicenseNumber = u.LicenseNumber!,
+                RequestedAt = DateTime.UtcNow // If you add a RequestedDate to your User entity, use that here
+            });
+        }
+
+        public async Task RejectDriverAsync(string userId, string reason)
+        {
+            var user = await userManager.FindByIdAsync(userId) ?? throw new Exception("User not found.");
+
+            // Clear license info so they can re-apply if it was just a typo/bad image
+            user.LicenseNumber = null;
+            user.IsDriverApproved = false;
+
+            await userManager.UpdateAsync(user);
+
+            var subject = "GoBet - Driver Application Update";
+            var body = $@"
+        <h3>Hello, {user.FullName}</h3>
+        <p>Unfortunately, your driver application could not be approved at this time.</p>
+        <p><strong>Reason:</strong> {reason}</p>
+        <p>You may re-apply from your dashboard after addressing the issue above.</p>";
+
+            await emailService.SendEmailAsync(user.Email!, subject, body);
         }
 
         public async Task UpdateUserStatusAsync(string userId)

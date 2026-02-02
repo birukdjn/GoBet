@@ -12,15 +12,28 @@ namespace GoBet.Api.Controllers
     [Authorize(Roles = Roles.Admin)]
     public class AdminController(IAdminService adminService) : ControllerBase
     {
+  
+        [HttpGet("driver-requests")]
+        public async Task<IActionResult> GetDriverRequests()
+        {
+            var requests = await adminService.GetPendingDriverRequestsAsync();
+            return Ok(requests);
+        }
+
         [HttpPost("approve-driver/{userId}")]
-        [Authorize(Roles = Roles.Admin)]
-        public async Task<IActionResult> ApproveDriver(string userId)
+        public async Task<IActionResult> Approve(string userId)
         {
             await adminService.ApproveDriverAsync(userId);
-
-            return Ok(new { message = "User has been approved as a driver." });
-
+            return Ok(new { message = "Driver approved successfully" });
         }
+
+        [HttpPost("reject-driver/{userId}")]
+        public async Task<IActionResult> Reject(string userId, [FromBody] string reason)
+        {
+            await adminService.RejectDriverAsync(userId, reason);
+            return Ok(new { message = "Driver request rejected" });
+        }
+
         [HttpGet("users")]
         public async Task<IActionResult> GetUsers()
         {

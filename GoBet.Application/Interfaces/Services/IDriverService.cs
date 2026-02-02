@@ -3,5 +3,6 @@
     public interface IDriverService
     {
         Task RequestDriverAsync(string PassengerId, string licenseNumber);
+        Task<string> GetRequestStatusAsync(string userId);
     }
 }

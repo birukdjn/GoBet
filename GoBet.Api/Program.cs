@@ -15,12 +15,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using System.Text;
+using Microsoft.AspNetCore.Http.Json;
 
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 // 1. Controllers & Swagger
+
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen(c =>
@@ -79,6 +81,11 @@ services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSetting
 
 
 services.AddSignalR();
+
+services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+});
 
 // 5. Application services
 services.AddScoped<IAuthService, AuthService>();

@@ -2,7 +2,6 @@
 using GoBet.Application.Interfaces.Services;
 using GoBet.Domain.Constants;
 using GoBet.Domain.Entities;
-using GoBet.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -42,6 +41,9 @@ namespace GoBet.Infrastructure.Identity
             if (!await userManager.CheckPasswordAsync(user, model.Password))
                 throw new Exception("Invalid credentials");
 
+            user.LastLoginDate = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
+            await userManager.UpdateAsync(user);
+
             var token = await tokenService.GenerateAccessTokenAsync(user);
 
             return new AuthResultDto(token, DateTime.UtcNow.AddHours(12));
@@ -67,7 +69,9 @@ namespace GoBet.Infrastructure.Identity
                     UserName = email,
                     FullName = result.Principal.FindFirstValue(ClaimTypes.Name) ?? email,
                     EmailConfirmed = true,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.UtcNow,
+                    LastLoginDate = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc)
+
                 };
 
                 var createResult = await userManager.CreateAsync(user);
@@ -75,6 +79,13 @@ namespace GoBet.Infrastructure.Identity
                     throw new Exception("Failed to create user from social login");
 
                 await userManager.AddToRoleAsync(user, Roles.Passenger);
+            }
+            else
+            {
+                user.LastLoginDate = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
+
+                await userManager.UpdateAsync(user);
+
             }
 
             var token = await tokenService.GenerateAccessTokenAsync(user);

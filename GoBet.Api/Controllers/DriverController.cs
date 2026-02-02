@@ -12,6 +12,15 @@ namespace GoBet.Api.Controllers
     [Route("api/[controller]")]
     public class DriverController(IDriverService driverService) : ControllerBase
     {
+        [Authorize]
+        [HttpGet("my-request-status")]
+        public async Task<IActionResult> GetMyStatus()
+        {
+            var userId = User.GetUserId().ToString();
+            var status = await driverService.GetRequestStatusAsync(userId);
+            return Ok(new { status });
+        }
+
         [Authorize(Roles = Roles.Passenger)]
         [HttpPost("request-driver")]
         public async Task<IActionResult> RequestDriver(DriverRequestDto dto)

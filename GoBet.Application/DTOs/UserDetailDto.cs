@@ -8,6 +8,7 @@ namespace GoBet.Application.DTOs
         public string FullName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Role { get; set; } = string.Empty;
-        public string Status { get; set; } = "Active";
+        public bool IsActive { get; set; } = true;
+        public DateTime? LastLoginDate { get; set; }
     }
 }

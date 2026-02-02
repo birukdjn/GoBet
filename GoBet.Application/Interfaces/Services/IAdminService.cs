@@ -10,5 +10,7 @@ namespace GoBet.Application.Interfaces.Services
         Task<IEnumerable<UserDetailDto>> GetAllUsersAsync();
         Task ChangeUserRoleAsync(string userId, string newRole);
         Task UpdateUserStatusAsync(string userId);
+        Task<IEnumerable<DriverRequestDetailDto>> GetPendingDriverRequestsAsync();
+        Task RejectDriverAsync(string userId, string reason);
     }
 }
